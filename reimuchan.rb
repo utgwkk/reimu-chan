@@ -69,6 +69,7 @@ client.on_event(:favorite) do |event|
     options[:text] += e.backtrace.join("\n")
     options[:text] += "\n```\nじゃあ、私は失礼するわね"
     Slack.chat_postMessage(options)
+    client.stop
   end
 end
 
