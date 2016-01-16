@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#require 'slack'
+require 'slack'
 require 'twitter'
 
 YOUR_SCREEN_NAME = Twitter::REST::Client.new do |config|
@@ -21,4 +21,5 @@ Slack.configure do |config|
 end
 
 client.user do |data|
+  puts data
 end
