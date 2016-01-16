@@ -66,6 +66,7 @@ client.on_event(:favorite) do |event|
     client.stop
   rescue Exception => e
     options[:text] = "画像を保存していたらエラーが発生したわ\nTraceBackを貼っておくから修正しておいてよね\n```"
+    options[:text] += e.to_s + "\n"
     options[:text] += e.backtrace.join("\n")
     options[:text] += "\n```\nじゃあ、私は失礼するわね"
     Slack.chat_postMessage(options)
