@@ -16,5 +16,5 @@ $ export TWITTER_CONSUMER_KEY="YOUR_TWITTER_CONSUMER_KEY"
 ...
 
 # start!
-$ ruby reimuchan.rb
+$ bundle exec ruby reimuchan.rb
 ```
