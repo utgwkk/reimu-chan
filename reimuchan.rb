@@ -54,7 +54,7 @@ client.on_event(:favorite) do |event|
     Slack.chat_postMessage(options)
     target_object[:extended_entities][:media].each do |media|
       download_url = media[:media_url_https]
-      download_filepath = DOWNLOAD_DIR + File::basename(download_url)
+      download_filepath = File.join(DOWNLOAD_DIR, File::basename(download_url))
       body = open(download_url, &:read)
       File.binwrite(download_filepath, body)
     end
