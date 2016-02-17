@@ -52,7 +52,8 @@ client.on_event(:favorite) do |event|
     puts url
     options[:text] = url
     Slack.chat_postMessage(options)
-    target_object[:extended_entities][:media].each do |media|
+    target_object[:extended_entities][:media].size.times do |i|
+      media = target_object[:extended_entities][:media][i]
       download_url = media[:media_url_https]
       download_filepath = File.join(DOWNLOAD_DIR, File::basename(download_url))
       body = open(download_url, &:read)
